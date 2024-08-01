@@ -1,0 +1,63 @@
+
+  
+
+.card {
+    position: relative;
+    overflow: hidden;
+    width: 9.5%;
+    height: 200px;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: width 0.7s ease-in-out, transform 0.3s ease-in-out;
+    margin-top: 60px;
+    
+}
+
+.card:hover {
+
+    width: 23%;
+
+}
+
+.card img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    transition: transform 2.0s ease-in-out;
+}
+
+.card span {
+    position: absolute;
+    bottom: 50px;
+    left: -100%;
+    margin: 0;
+    font-size: 1.2em;
+    transition: left 1.0s ease-in-out;
+}
+
+.card:hover img {
+    transform: rotate(360deg);
+}
+
+.card:hover span {
+    left: 150px;
+}
+
+.project-img {
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.318) 0px 4px 16px, rgba(0, 0, 0, 0.482) 0px 8px 24px, rgba(0, 0, 0, 0.482) 0px 16px 56px !important;
+}
+
+.profile-img{
+
+    border-radius: 20px !important;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    /* filter: contrast(1); */
+    /* box-shadow: whitesmoke 0px 30px 60px -12px inset, whitesmoke 0px 18px 36px -18px inset !important; */
+    /* filter: brightness(1); */
+}
+
