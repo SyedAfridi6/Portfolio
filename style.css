@@ -1,42 +1,45 @@
-
-  
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
 
 .card {
     position: relative;
     overflow: hidden;
-    width: 9.5%;
-    height: 200px;
+    width: 80px;
+    height: 280px;
     text-align: center;
-    padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: width 0.7s ease-in-out, transform 0.3s ease-in-out;
-    margin-top: 60px;
-    
+    box-shadow: rgba(136, 165, 191, 0.48) 0.4em 0.2em 1em 0px, 
+                rgba(255, 255, 255, 0.8) -0.4em -0.2em 1em 0px;    
+    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+    margin: 2px;
+    margin-top: 20px;
 }
 
+
 .card:hover {
-
-    width: 23%;
-
+    transform: scale(1.2);
+    width: 190px;
 }
 
 .card img {
     border-radius: 50%;
     width: 80px;
     height: 80px;
-    transition: transform 2.0s ease-in-out;
+    padding: 10px;
+    transition: transform 0.6s ease-in-out;
 }
 
 .card span {
     position: absolute;
-    bottom: 50px;
-    left: -100%;
+    bottom: 30px;
+    left: 65%;
+    transform: translateX(-50%);
     margin: 0;
     font-size: 1.2em;
-    transition: left 1.0s ease-in-out;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    white-space: nowrap;
 }
 
 .card:hover img {
@@ -44,20 +47,438 @@
 }
 
 .card:hover span {
-    left: 150px;
+    opacity: 1;
 }
 
 .project-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
     border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.318) 0px 4px 16px, rgba(0, 0, 0, 0.482) 0px 8px 24px, rgba(0, 0, 0, 0.482) 0px 16px 56px !important;
+    box-shadow: rgba(0, 0, 0, 0.318) 0px 4px 16px, 
+                rgba(0, 0, 0, 0.482) 0px 8px 24px, 
+                rgba(0, 0, 0, 0.482) 0px 16px 56px;
 }
 
-.profile-img{
+.profile-img {
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, 
+                rgba(0, 0, 0, 0.12) 0px -12px 30px, 
+                rgba(0, 0, 0, 0.12) 0px 4px 6px, 
+                rgba(0, 0, 0, 0.17) 0px 12px 13px, 
+                rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
 
-    border-radius: 20px !important;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    /* filter: contrast(1); */
-    /* box-shadow: whitesmoke 0px 30px 60px -12px inset, whitesmoke 0px 18px 36px -18px inset !important; */
-    /* filter: brightness(1); */
+/* Tablet Screens */
+@media (max-width: 991px) {
+    .card:hover {
+        width: 200px;
+    }
+
+    .project-img {
+        height: 350px;
+    }
+}
+
+/* Mobile Screens */
+@media (max-width: 767px) {
+    .card:hover {
+        width: 180px;
+        transform: scale(1.15);
+    }
+    
+    .card span {
+        font-size: 1em;
+    }
+    
+    .project-img {
+        height: 300px;
+    }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 480px) {
+    .card:hover {
+        width: 160px;
+        transform: scale(2);
+    }
+    
+    .card span {
+        font-size: 0.8em;
+        bottom: 30px;
+        right: 100px;
+    }
+    
+    .project-img {
+        height: 250px;
+    }
+}
+
+/* Certificate Section */
+.certificate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 50px 20px;
+    overflow: hidden;
+}
+
+.certify {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.mile {
+    margin-bottom: 80px !important;
+    text-align: center;
+}
+
+.gallery {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 450px;
+    perspective: 1000px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+/* Certificate Cards */
+.cert-card {
+    width: 220px;
+    height: 300px;
+    position: absolute;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.cert-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+/* View Now Overlay */
+.view-now {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 24px;
+    background: rgba(255, 194, 0, 0.9);
+    color: #000;
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+    z-index: 10;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(255, 194, 0, 0.4);
+}
+
+.cert-card:hover .view-now {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.cert-card:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+}
+
+/* Positioning cards with 3D rotation */
+.gallery .card1 { 
+    transform: rotateY(0deg) translateZ(350px); 
+    animation: rotate 30s infinite linear;
+    animation-delay: 0s;
+}
+
+.gallery .card2 { 
+    transform: rotateY(45deg) translateZ(350px); 
+    animation: rotate 30s infinite linear;
+    animation-delay: -3.75s;
+}
+
+.gallery .card3 { 
+    transform: rotateY(90deg) translateZ(350px); 
+    animation: rotate 30s infinite linear;
+    animation-delay: -7.5s;
+}
+
+.gallery .card4 { 
+    transform: rotateY(135deg) translateZ(350px); 
+    animation: rotate 30s infinite linear;
+    animation-delay: -11.25s;
+}
+
+.gallery .card5 { 
+    transform: rotateY(180deg) translateZ(350px); 
+    animation: rotate 30s infinite linear;
+    animation-delay: -15s;
+}
+
+.gallery .card6 { 
+    transform: rotateY(225deg) translateZ(350px); 
+    animation: rotate 30s infinite linear;
+    animation-delay: -18.75s;
+}
+
+.gallery .card7 { 
+    transform: rotateY(270deg) translateZ(350px); 
+    animation: rotate 30s infinite linear;
+    animation-delay: -22.5s;
+}
+
+.gallery .card8 { 
+    transform: rotateY(315deg) translateZ(350px); 
+    animation: rotate 30s infinite linear;
+    animation-delay: -26.25s;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg) translateZ(350px);
+    }
+    to {
+        transform: rotateY(360deg) translateZ(350px);
+    }
+}
+
+/* Certificate Modal */
+.certificate-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.certificate-modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content-img {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+    border: 5px solid #fff;
+}
+
+.certificate-modal.show .modal-content-img {
+    transform: scale(1);
+}
+
+/* Modal Close Button - FIXED CENTERING */
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.5);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    
+    /* Perfect centering fix */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    
+    /* Fix text baseline offset */
+    font-family: Arial, sans-serif;
+    vertical-align: middle;
+    
+    user-select: none;
+}
+
+/* Ensure centered during rotation */
+.modal-close:hover,
+.modal-close:focus {
+    color: #ffc200;
+    transform: rotate(90deg);
+    transform-origin: center center;
+    background: rgba(255, 194, 0, 0.2);
+}
+
+
+/* Blur background when modal is active */
+body.modal-active .navbar,
+body.modal-active .about,
+body.modal-active #skills,
+body.modal-active .project,
+body.modal-active .resume,
+body.modal-active .certificate .certify,
+body.modal-active .contact,
+body.modal-active .footer {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    pointer-events: none;
+}
+
+body.modal-active {
+    overflow: hidden;
+}
+
+/* Tablet Responsiveness */
+@media (max-width: 991px) {
+    .gallery {
+        height: 380px;
+        perspective: 900px;
+    }
+    
+    .cert-card {
+        width: 180px;
+        height: 250px;
+    }
+    
+    .gallery .card1 { transform: rotateY(0deg) translateZ(300px); }
+    .gallery .card2 { transform: rotateY(45deg) translateZ(300px); }
+    .gallery .card3 { transform: rotateY(90deg) translateZ(300px); }
+    .gallery .card4 { transform: rotateY(135deg) translateZ(300px); }
+    .gallery .card5 { transform: rotateY(180deg) translateZ(300px); }
+    .gallery .card6 { transform: rotateY(225deg) translateZ(300px); }
+    .gallery .card7 { transform: rotateY(270deg) translateZ(300px); }
+    .gallery .card8 { transform: rotateY(315deg) translateZ(300px); }
+    
+    @keyframes rotate {
+        from { transform: rotateY(0deg) translateZ(300px); }
+        to { transform: rotateY(360deg) translateZ(300px); }
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 767px) {
+    .certificate {
+        min-height: 60vh;
+        padding: 30px 10px;
+    }
+    
+    .mile {
+        font-size: 1.5em;
+        margin-bottom: 30px;
+    }
+    
+    .gallery {
+        height: 320px;
+        perspective: 700px;
+    }
+    
+    .cert-card {
+        width: 150px;
+        height: 210px;
+    }
+    
+    .cert-card img {
+        border: 3px solid #fff;
+    }
+    
+    .view-now {
+        font-size: 0.9em;
+        padding: 8px 18px;
+        bottom: 20px;
+    }
+    
+    .modal-content-img {
+        max-width: 95%;
+        max-height: 80vh;
+    }
+    
+    .modal-close {
+        top: 10px;
+        right: 10px;
+        font-size: 35px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .gallery .card1 { transform: rotateY(0deg) translateZ(250px); }
+    .gallery .card2 { transform: rotateY(45deg) translateZ(250px); }
+    .gallery .card3 { transform: rotateY(90deg) translateZ(250px); }
+    .gallery .card4 { transform: rotateY(135deg) translateZ(250px); }
+    .gallery .card5 { transform: rotateY(180deg) translateZ(250px); }
+    .gallery .card6 { transform: rotateY(225deg) translateZ(250px); }
+    .gallery .card7 { transform: rotateY(270deg) translateZ(250px); }
+    .gallery .card8 { transform: rotateY(315deg) translateZ(250px); }
+    
+    @keyframes rotate {
+        from { transform: rotateY(0deg) translateZ(250px); }
+        to { transform: rotateY(360deg) translateZ(250px); }
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    .gallery {
+        height: 280px;
+        perspective: 600px;
+    }
+    
+    .cert-card {
+        width: 130px;
+        height: 180px;
+    }
+    
+    .cert-card img {
+        border: 2px solid #fff;
+    }
+    
+    .view-now {
+        font-size: 0.8em;
+        padding: 6px 14px;
+        bottom: 15px;
+    }
+    
+    .modal-close {
+        font-size: 30px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .gallery .card1 { transform: rotateY(0deg) translateZ(200px); }
+    .gallery .card2 { transform: rotateY(45deg) translateZ(200px); }
+    .gallery .card3 { transform: rotateY(90deg) translateZ(200px); }
+    .gallery .card4 { transform: rotateY(135deg) translateZ(200px); }
+    .gallery .card5 { transform: rotateY(180deg) translateZ(200px); }
+    .gallery .card6 { transform: rotateY(225deg) translateZ(200px); }
+    .gallery .card7 { transform: rotateY(270deg) translateZ(200px); }
+    .gallery .card8 { transform: rotateY(315deg) translateZ(200px); }
+    
+    @keyframes rotate {
+        from { transform: rotateY(0deg) translateZ(200px); }
+        to { transform: rotateY(360deg) translateZ(200px); }
+    }
 }
 
