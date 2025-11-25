@@ -88,7 +88,7 @@
     }
     
     .card span {
-        font-size: 0.8em;
+        font-size: 1em;
     }
     
     .project-img {
@@ -106,7 +106,7 @@
     .card span {
         font-size: 0.8em;
         bottom: 30px;
-        right: 80px;
+        padding-right: 5px;
     }
     
     .project-img {
